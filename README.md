@@ -2,8 +2,8 @@
 
 Learning-Token-API 目的為解決學習歷程檔案遺失之問題，此外提供一個具遊戲化的教學工具提升學生的學習動機
 
-系統發表期刊網址：
-[The Implementation of the Learning Token System for Open Educational Resources based-on Blockchain Smart Contracts.pdf](https://github.com/nyy100604/Learning-Token-API/files/10710068/The.Implementation.of.the.Learning.Token.System.for.Open.Educational.Resources.based-on.Blockchain.Smart.Contracts.pdf)
+系統發表期刊：
+[CTCSA.MS.ID.000133 (2).pdf](https://github.com/nyy100604/Learning-Token-API/files/10710107/CTCSA.MS.ID.000133.2.pdf)
 
 提供六種徽章(NFT)：  
 <img width="357" alt="image" src="https://user-images.githubusercontent.com/85146178/218162827-f7305158-5e3a-4b46-8845-a4e0a302788f.png">
