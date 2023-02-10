@@ -1,6 +1,7 @@
 import Web3 from "web3";
 
 import contractAbi from "./abi.js";
+
 var web3 = new Web3(
   "https://goerli.infura.io/v3/349f49a249954f1f9bceaa3b6c792beb"
 );

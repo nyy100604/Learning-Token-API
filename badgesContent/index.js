@@ -1,3 +1,9 @@
+import User from "../models/user-model.js";
+import axios from "axios";
+import mintToken from "../Blockchain/index.js";
+import { create, globSource } from "ipfs-http-client";
+const ipfs = create();
+
 export default async function badgesContent(
   level,
   username,
@@ -6,8 +12,9 @@ export default async function badgesContent(
   criteria,
   learningContent,
   image,
-  level,
-  second
+  second,
+  badgrApi,
+  apiToken
 ) {
   // nft metadata
   const badgesInfo = {
@@ -32,7 +39,7 @@ export default async function badgesContent(
 
   fs.writeFile("badgesInfo.json", data, (e) => {
     if (e) throw e;
-    console.log("File has been written.");
+    console.log(`${username}'s badge has been written.`);
   });
 
   for await (const file of ipfs.addAll(
@@ -40,10 +47,13 @@ export default async function badgesContent(
   )) {
     let tokenId;
     console.log(`ipfs.io/ipfs/${file.path}`);
+
     let userLength = await User.find({});
     tokenId = userLength.length + 1;
 
     // distribute tokens
+
+    //create a account
     let { address } = web3.eth.accounts.create();
     mintToken(address, tokenId, `ipfs.io/ipfs/${file.path}`, async (hash) => {
       console.log(hash);
@@ -58,13 +68,13 @@ export default async function badgesContent(
         blochainHref: blockchainWebsite,
       });
       try {
-        const savedUser = await newUser.save();
+        await newUser.save();
       } catch (e) {
         res.status(400).send("User not saved.");
       }
       axios
         .post(
-          "https://api.badgr.io/v2/badgeclasses/EbR32fX1SBCJu7a3ONKndA/assertions",
+          badgrApi,
           {
             recipient: {
               identity: email,
@@ -78,7 +88,7 @@ export default async function badgesContent(
                 narrative: "Blockchain Information",
               },
               {
-                url: "https://drive.google.com/file/d/1CADwqhj9lWVATfn_s4EEBTS2YWjX6xLw/view?usp=sharing",
+                url: learningContent,
                 narrative: "Living Technology Knowledge",
               },
             ],
@@ -86,7 +96,7 @@ export default async function badgesContent(
           },
           {
             headers: {
-              Authorization: token,
+              Authorization: apiToken,
             },
           }
         )
@@ -95,8 +105,8 @@ export default async function badgesContent(
           res.status(200).send(data.data.result);
         })
         .catch((e) => {
-          console.log("X post to badgr", e);
-          res.status(404).send(e);
+          console.log("can't post to badgr", e);
+          res.status(404).send("can't post to badgr");
         });
     });
   }
