@@ -18,4 +18,10 @@ The COVID-19 pandemic has accelerated the digitization of education. Educators i
 
   `post electricCircuit/`
   `post woodWorking/`
+    {
+    "name": "Cody Chen",
+    "corporation": "臺大BIM中心",
+    "email": "cdxvy30@caece.net",
+    "password": "123",
+}  
 
