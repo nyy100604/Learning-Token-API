@@ -3,7 +3,7 @@
 
 The COVID-19 pandemic has accelerated the digitization of education. Educators in different educational institutions began searching diverse online learning methods and tools in present materials, ensuring the quality of student learning. Open Educational Resources (OER) have been one of the significant trends of online learning platforms. During the pandemic, OER educators tried to reduce or eliminate tuition fees to raise students’ motivation of learning; however, it found that learners’ course completion rates turned lower than before as well as the instructor never updated the course and responded to student questions after the course was released. Recently, researchers have been searching for different ways to raise students learning motivation effectively, gamification is one of the popular methods. The proposed system, learning token system for OER was implemented by compiling blockchain smart contracts, tokenizing the learners' learning experience after completing the course into learning Non-Fungible Token (L-NFT), and using gamification elements such as learning tokens and social platforms to promote motivational effects.
 
-#上方系統為 Learning-Token-Syatem 釋出之 API - 以生活科技課程為例
+上方系統為 Learning-Token-Syatem 釋出之 API - 以生活科技課程為例
 
 提供六種徽章(NFT)：  
 <img width="357" alt="image" src="https://user-images.githubusercontent.com/85146178/218162827-f7305158-5e3a-4b46-8845-a4e0a302788f.png">
@@ -13,4 +13,10 @@ The COVID-19 pandemic has accelerated the digitization of education. Educators i
 
 於badgr網站中呈現的learning NFT 徽章：
 ![image](https://user-images.githubusercontent.com/85146178/218164485-07ece0ed-d0dd-4eee-b26e-e0930e612bc4.png)
+
+  baseurl:http://140.122.91.205:3000/api/
+
+  post
+     electricCircuit/
+     woodWorking/
 
