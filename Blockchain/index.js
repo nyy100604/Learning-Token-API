@@ -9,16 +9,15 @@ import { Common } from "@ethereumjs/common";
 import { Transaction } from "@ethereumjs/tx";
 
 let { address } = web3.eth.accounts.create();
-let contractAddress = "0x2C3210ceEf8437709E9F1c09Fd5f4441D145031E";
+let contractAddress = "0x781495f4e7557Dd5C8f5762d21Cbd39500a02696";
 let abi = contractAbi;
 var contract = new web3.eth.Contract(contractAbi, contractAddress);
 let accountAddr = "0x54d160a7AeC0bAdDa0CF718b9989Dfff5f6f6f8C";
-let privateKey =
-  "0f58beb0ee38e7ebf6e133c1b2ae8bfae36e7c6be2bb72c77af96a64714a7202";
+let privateKey = process.env.privateKey;
 
 export default async function mintToken(address, id, ipfs, cb) {
   console.log(address, id, ipfs);
-  let data = contract.methods.safeMint(address, id, ipfs).encodeABI();
+  let data = contract.methods.awardItem(address, id, ipfs).encodeABI();
   await web3.eth.getTransactionCount(accountAddr, (e, txCount) => {
     console.log(txCount);
     //build transaction object
