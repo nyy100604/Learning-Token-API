@@ -14,9 +14,8 @@ The COVID-19 pandemic has accelerated the digitization of education. Educators i
 於badgr網站中呈現的learning NFT 徽章：
 ![image](https://user-images.githubusercontent.com/85146178/218164485-07ece0ed-d0dd-4eee-b26e-e0930e612bc4.png)
 
-  baseurl:http://140.122.91.205:3000/api/
+  `baseurl:http://140.122.91.205:3000/api/`
 
-  post
-    electricCircuit/
-    woodWorking/
+  `post electricCircuit/`
+  `post woodWorking/`
 
