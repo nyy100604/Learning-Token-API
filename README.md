@@ -8,8 +8,10 @@ The COVID-19 pandemic has accelerated the digitization of education. Educators i
 提供六種徽章(NFT)：  
 <img width="357" alt="image" src="https://user-images.githubusercontent.com/85146178/218162827-f7305158-5e3a-4b46-8845-a4e0a302788f.png">
 
+
 系統架構圖：  
 <img width="849" alt="image" src="https://user-images.githubusercontent.com/85146178/218163579-534f3e45-8d42-4e39-ba05-efb818143500.png">
+
 
 於badgr網站中呈現的learning NFT 徽章：
 ![image](https://user-images.githubusercontent.com/85146178/218164485-07ece0ed-d0dd-4eee-b26e-e0930e612bc4.png)
