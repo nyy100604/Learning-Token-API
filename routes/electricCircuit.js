@@ -1,13 +1,13 @@
 import express from "express";
-import badges from "../badgesContent/index";
+import badges from "../badgesContent/index.js";
 const router = express.Router();
+import dotenv from "dotenv";
+dotenv.config();
 
 router.get("/", (req, res, next) => {
   console.log("A request is coming into  electricCircuit api...");
   next();
 });
-
-const token = "Bearer 0F8kSwtJrPxaL4NWbWhQoyl0AByvsx";
 
 // badges img
 const gold =
@@ -33,7 +33,7 @@ router.post("/", async (req, res) => {
     const goldBadgrApi =
       "https://api.badgr.io/v2/badgeclasses/EbR32fX1SBCJu7a3ONKndA/assertions";
 
-    badges(
+    let result = badges(
       "金",
       username,
       email,
@@ -43,12 +43,15 @@ router.post("/", async (req, res) => {
       gold,
       second,
       goldBadgrApi,
-      token
+      (result) => {
+        res.status(200).send(result);
+      }
     );
+    res.status(200).send(result);
   } else if ((second > 1800) & (second <= 3000)) {
     const silverBadgrApi =
       " https://api.badgr.io/v2/badgeclasses/e6QfgjjlRhOSCNJEBo2tyg/assertions";
-    badges(
+    let result = badges(
       "銀",
       username,
       email,
@@ -58,12 +61,15 @@ router.post("/", async (req, res) => {
       silver,
       second,
       silverBadgrApi,
-      token
+      (result) => {
+        res.status(200).send(result);
+      }
     );
+    res.status(200).send(result);
   } else {
     const copperBadgrApi =
       "https://api.badgr.io/v2/badgeclasses/8OMcSXdGTZOOwVAa_WpgJg/assertions";
-    badges(
+    let result = badges(
       "銅",
       username,
       email,
@@ -73,8 +79,11 @@ router.post("/", async (req, res) => {
       copper,
       second,
       copperBadgrApi,
-      token
+      (result) => {
+        res.status(200).send(result);
+      }
     );
+    res.status(200).send(result);
   }
 });
 

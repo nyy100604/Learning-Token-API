@@ -1,8 +1,13 @@
+import dotenv from "dotenv";
+dotenv.config();
+import Web3 from "web3";
 import User from "../models/user-model.js";
 import axios from "axios";
 import mintToken from "../Blockchain/index.js";
+import fs from "fs";
 import { create, globSource } from "ipfs-http-client";
 const ipfs = create();
+var web3 = new Web3(process.env.INFURA_API);
 
 export default async function badgesContent(
   level,
@@ -14,7 +19,7 @@ export default async function badgesContent(
   image,
   second,
   badgrApi,
-  apiToken
+  resData
 ) {
   // nft metadata
   const badgesInfo = {
@@ -96,17 +101,17 @@ export default async function badgesContent(
           },
           {
             headers: {
-              Authorization: apiToken,
+              Authorization: process.env.BADGR_TOKEN,
             },
           }
         )
         .then((data) => {
           console.log(data.data.result);
-          res.status(200).send(data.data.result);
+          resData({ suucess: true, result: data.data.result });
         })
         .catch((e) => {
           console.log("can't post to badgr", e);
-          res.status(404).send("can't post to badgr");
+          resData({ suucess: false, result: e });
         });
     });
   }

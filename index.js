@@ -6,7 +6,7 @@ dotenv.config();
 import routes from "./routes/index.js";
 const woodWorkingRoutr = routes.woodWorking;
 const electricCircuitRoute = routes.electricCircuit;
-
+console.log(process.env.CONNECT_DB, process.env.BADGR_TOKEN);
 mongoose
   .connect(process.env.CONNECT_DB)
   .then(() => {
